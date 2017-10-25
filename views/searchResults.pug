@@ -1,0 +1,25 @@
+doctype html
+html
+   head
+      link(rel='stylesheet', type='text/css', href='style.css')
+   body
+      .navigation 
+         ul
+            li <a href='/'>Home</a>
+            li <a href='/search'>Search</a>
+            li <a href='/addMe'>Add me </a>
+      h1 USERS
+      if results 
+         table
+            tr
+               th.header First name
+               th.header Last name
+               th.header Email
+            tr
+               th.index #{JSON.stringify(results.firstname)}
+               th.index #{JSON.stringify(results.lastname)}
+               th.index #{JSON.stringify(results.email)}
+      else 
+         p No match
+         
+      .footer

@@ -1,0 +1,37 @@
+doctype html
+html
+   head
+      title Search First/Last name
+      link(rel='stylesheet', type='text/css', href='style.css')
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+   body
+      .navigation
+         ul
+            li
+               a(href='/') Home
+            li
+               a(href='/search') Search
+            li
+               a(href='/addMe') Add me
+      form(action='/userDetails', method='post')
+         input#searching(type='text', name='name', placeholder='First/Last name', autocomplete="off")
+         input(type='submit', value='Search')
+      .database     
+      .footer
+      script.
+         $(document).ready(() => {
+            $('#searching').keyup(() => {
+               setTimeout(function () {
+                  const search = $('#searching').val();
+                  $.get(`/search_data`, { input: search }, data => {
+                     if(data.user !== undefined){
+                        $(".database").html(`<table><tr><th class='header'>Name </th><th class='header'>Email</th></tr>
+                           <th class='index'>${data.user.firstname} ${data.user.lastname}</th><th class='index'> ${data.user.email}</th> 
+                           </tr></table>`);
+                     } else {
+                        $(".database").html(``);
+                     }
+                  });   
+               }, 300);
+            });
+         });
