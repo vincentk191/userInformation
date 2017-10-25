@@ -1,0 +1,126 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   display: grid;
+   font-size: 20px;
+   background-image: url(https://i.imgur.com/j2LDHX0.png);
+}
+
+.navigation {
+   list-style: none;
+   margin: 0;
+   position: sticky;
+   justify-content: flex-end;
+   align-items: flex-end;
+      background-color: powderblue;
+   width: 100%;
+   box-shadow: 0px 7px 6px -6px;
+}
+
+.navigation ul {
+   width: 100%;
+   border-bottom: 1px solid black;
+}
+.navigation li {
+   display: inline;
+   float: right;
+   padding: 15px;
+
+}
+
+.navigation a {
+   font-family: 'Roboto', sans-serif;
+   text-decoration: none;
+   /*display: flow-root;*/
+   padding: 14.7px;
+   color: white;
+   text-shadow: 1px 1px 80px;
+   text-align: right;
+   padding: 10px;
+   /*border-top: 1px solid rgba(255, 255, 255, 0.3);
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
+}
+
+.navigation a:hover {
+   color: white;
+   font-family: 'Roboto', sans-serif;
+   border: 0;
+   background-color: skyblue;
+   padding: 14.7px;
+   transition: all 0.5s;
+   text-shadow: 1px 1px 40px;
+}
+
+h1 {
+   color: rgba(255, 255, 255, 0.9);
+   font-family: 'Roboto', sans-serif;
+   font-weight: lighter;
+   padding-top: 60px;
+   border: 0;
+   background-color: transparent;
+   text-shadow: 1px 1px 40px;
+   text-align: center;
+}
+
+table {
+   padding: 0;
+   padding-top: 50px;
+   margin: 0;
+   list-style: none;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   justify-content: space-around;
+}
+
+th.header {
+   background: rgba(255, 255, 255, 0.5);
+   padding: 1px;
+   width: 200px;
+   height: 50px;
+   margin-top: 5px;
+   line-height: 50px;
+   color: white;
+   font-family: 'Roboto', sans-serif;
+   font-weight: lighter;
+   border: 0;
+   text-shadow: 1px 1px 90px;
+   text-align: center;
+}
+
+th.index {
+   background: rgba(255, 255, 255, 0.4);
+   padding: 1px;
+   width: 200px;
+   height: 50px;
+   margin-top: 5px;
+   line-height: 50px;
+   color: navy;
+   font-family: 'Roboto', sans-serif;
+   font-weight: lighter;
+   border: 0;
+   text-shadow: 1px 1px 90px;
+   text-align: center;
+}
+
+input[type=text] {
+    width: 200px;
+    font-size: 20px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=submit] {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    text-shadow: 1px 1px 90px;
+    text-align: center;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
