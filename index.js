@@ -24,9 +24,8 @@ app.get('/', (req, res) => {
       res.render('index', {
          file: jsonData
       });
-
-      res.send(jsonData);
    });
+
 });
 
 // Route 2 : Search bar
@@ -46,6 +45,11 @@ app.post('/userDetails', (req, res) => {
       let jsonData = JSON.parse(data);
 
       for (let i = 0; i < jsonData.length; i++) {
+
+         // const searchName = searchData.firstname.replace(/\s+/g, '');
+         // If you would prefer matching first and last name format
+         // let jsonName = jsonData[i].firstname + jsonData[i].lastname;
+
          if (jsonData[i].firstname.toLowerCase() === searchData.name.toLowerCase() ||
             jsonData[i].lastname.toLowerCase() === searchData.name.toLowerCase()) {
             res.render('searchResults', {
@@ -79,8 +83,8 @@ app.get('/search_data', (req, res) => {
          let firstName = element.firstname.toLowerCase()
          let lastName = element.lastname.toLowerCase()
 
-         if (input !== '') {
-            if (firstName.indexOf(input) > -1) {
+         if(input !== '') {
+            if (firstName.indexOf(input) > -1){
                return element;
             } else if (lastName.indexOf(input) > -1) {
                return element;
@@ -106,9 +110,13 @@ app.post('/addedUser', (req, res) => {
       if (err) {
          throw err;
       }
+
       let json = JSON.parse(data)
+
       json.push(newUser);
+
       fs.writeFile(fileName, JSON.stringify(json));
+
       res.redirect('/');
    });
 });
