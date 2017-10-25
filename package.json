@@ -1,8 +1,15 @@
 {
+<<<<<<< HEAD
   "name": "userinformationajax",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+=======
+  "name": "userinformation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+>>>>>>> 4a07797d7334f805c87aec7d806df601a049a40a
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +26,10 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+<<<<<<< HEAD
     "pug": "^2.0.0-rc.4"
+=======
+    "path": "^0.12.7"
+>>>>>>> 4a07797d7334f805c87aec7d806df601a049a40a
   }
 }
