@@ -1,27 +1,20 @@
-# Bulletin-Board
+# User information App
 
-A website that allows people to post messages to a page.
+A website that allows people to post their information to a page.
 
-### Features:
-   - Post messages
-   - Post anonymously
-   - Delete messages
-   - Edit messages on main board
+## Features:
 
-![banner](https://github.com/vincentk191/bulletinBoard/blob/master/public/images/screenShot.png?raw=true)
+- Adds first & last name
+- Adds email address
+- Search for existing users
 
-![banner](https://github.com/vincentk191/bulletinBoard/blob/master/public/images/screenShot2.png?raw=true)
+![banner](https://github.com/vincentk191/userInformation/blob/master/public/images/screenShot.png?raw=true)
 
-## Prerequisites
+![banner](https://github.com/vincentk191/userInformation/blob/master/public/images/screenShot2.png?raw=true)
 
-Requires your environment variables to be set to a default value of your USER and PASSWORD (if you have one).
+## Note
 
-You may do so by opening either ~/.bash_profile for OSX or ~/.bashrc for Linux and adding the line:
-
-```
-export POSTGRES_USER=name
-export POSTGRES_PASSWORD=mypassword
-```
+Uses a JSON file to store users data. This would therefore not require an SQL system.
 
 ## Installing
 
@@ -30,17 +23,18 @@ You will require this step to allow the modules used in the app to function.
 ```
 npm install
 ```
+
 And this to run the app.
+
 ```
 node index.js
 ```
 
 ## Libraries
+
 - Node.js
 - jQuery.js
 - AJAX
-- SQL
-- Postgres
 
 ## Authors
 
