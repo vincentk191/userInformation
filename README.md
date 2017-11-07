@@ -8,9 +8,9 @@ A website that allows people to post their information to a page.
 - Adds email address
 - Search for existing users
 
-![banner](https://github.com/vincentk191/userInformation/blob/master/public/images/screenShot.png?raw=true)
+![banner](https://github.com/vincentk191/userInformation/blob/bandwidth_optimization/public/images/screenShot.png?raw=true)
 
-![banner](https://github.com/vincentk191/userInformation/blob/master/public/images/screenShot2.png?raw=true)
+![banner](https://github.com/vincentk191/userInformation/blob/bandwidth_optimization/public/images/screenShot2.png?raw=true)
 
 ## Note
 
