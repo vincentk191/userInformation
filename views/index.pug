@@ -1,29 +1,40 @@
 doctype html
 html
    head
-      link(rel='stylesheet', type='text/css', href='style.css')
+      link(rel='stylesheet', type='text/css', href='https://bootswatch.com/4/sketchy/bootstrap.css')
+      title Users
    body
-      .navigation 
-         ul
-            li <a href='/'> Home</a>
-            li <a href='/search'>Search</a>
-            li <a href='/addMe'>Add me </a>
-   
-      h1 USER 
-      .database
-         if file 
-            table
+   nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+      a.navbar-brand(href='/') USER Info
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor01', aria-controls='navbarColor01', aria-expanded='false', aria-label='Toggle navigation')
+         span.navbar-toggler-icon
+      #navbarColor01.collapse.navbar-collapse
+         ul.navbar-nav.mr-auto
+            li.nav-item.active
+               a.nav-link(href='/')
+                  | Home 
+            span.sr-only (current)
+            li.nav-item
+               a.nav-link(href='/search') Search
+            li.nav-item
+               a.nav-link(href='/addMe') Add me
+   h1 USERS
+   .database
+      if file 
+         table.table.table-striped.table-hover.table-bordered
+            thead.thead-dark
                tr
-                  th.header First name
-                  th.header Last name
-                  th.header Email
-                  
+                  th First name
+                  th Last name
+                  th Email
+            tbody
                each user in file 
                   tr
-                     th.index= user.firstname 
-                     th.index= user.lastname
-                     th.index= user.email
-                     
-         else 
-            p No file read
-      .footer
+                     td= user.firstname 
+                     td= user.lastname
+                     td= user.email
+                  
+      else 
+         p No file read
+   .footer
+      p Copyright © 2017 by Vincent K

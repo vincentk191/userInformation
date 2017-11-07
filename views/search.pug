@@ -1,33 +1,43 @@
 doctype html
 html
    head
-      title Search First/Last name
-      link(rel='stylesheet', type='text/css', href='style.css')
+      title Find Me 
+      link(rel='stylesheet', type='text/css', href='https://bootswatch.com/4/sketchy/bootstrap.css')
       script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
    body
-      .navigation
-         ul
-            li
-               a(href='/') Home
-            li
-               a(href='/search') Search
-            li
-               a(href='/addMe') Add me
-      form(action='/userDetails', method='post')
-         input#searching(type='text', name='name', placeholder='First/Last name', autocomplete="off")
+      nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+         a.navbar-brand(href='/') USER Info
+         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor01', aria-controls='navbarColor01', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+         #navbarColor01.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+               li.nav-item.active
+                  a.nav-link(href='/')
+                     | Home 
+               span.sr-only (current)
+               li.nav-item
+                  a.nav-link(href='/search') Search
+               li.nav-item
+                  a.nav-link(href='/addMe') Add me
+      form.form-group(action='/userDetails', method='post')
+         label(for='exampleInputEmail1') User
+         input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter a first or last name')
          input(type='submit', value='Search')
-      .database     
+      table.table.table-striped.table-hover.table-bordered
       .footer
+         p Copyright © 2017 by Vincent K
       script.
-         $(document).ready(() => {
-            $('#searching').keyup(() => {
+         $(document).ready(function(){
+            $('#exampleInputEmail1.form-control').keyup(function(){
                setTimeout(function () {
-                  const search = $('#searching').val();
-                  $.get(`/search_data`, { input: search }, data => {
-                     if(data.user !== undefined){
-                        $(".database").html(`<table><tr><th class='header'>Name </th><th class='header'>Email</th></tr>
-                           <th class='index'>${data.user.firstname} ${data.user.lastname}</th><th class='index'> ${data.user.email}</th> 
-                           </tr></table>`);
+                  const search = $('#exampleInputEmail1.form-control').val();
+                  $.get(`/search_data`, { input: search }, function(data){
+                     if(data.user[0] !== undefined){
+                        $("table.table.table-striped.table-hover.table-bordered").html(``);
+                        $("table.table.table-striped.table-hover.table-bordered").append('<thead class="thead-dark"><tr><th>First & Last name</th><th>Email</th></tr></thead>');
+                           for(var i = 0; i < data.user.length; i++){
+                              $("table.table.table-striped.table-hover.table-bordered").append(`<tr><th class='index'>${data.user[i].firstname} ${data.user[i].lastname}</th><th class='index'> ${data.user[i].email}</th> </tr>`).hide().fadeIn(300);
+                           }
                      } else {
                         $(".database").html(``);
                      }

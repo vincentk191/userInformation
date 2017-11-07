@@ -3,24 +3,43 @@
 
 <head>
    <title>Add me!</title>
-   <link rel='stylesheet' type='text/css' href='style.css'>
+   <link rel='stylesheet' type='text/css' href='https://bootswatch.com/4/sketchy/bootstrap.css'>
 </head>
 
 <body>
-   <div class='navigation'>
-      <ul>
-         <li><a href='/'>Home</a></li>
-         <li><a href='/search'>Search</a></li>
-         <li><a href='/addMe'>Add me</a></li>
-      </ul>
-   </div>
-   <form action='/addedUser' method='post'>
-      <input type='text' name='firstname' placeholder="First Name">
-      <input type='text' name='lastname' placeholder="Last Name">
-      <input type='text' name='email' placeholder="Email">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="/">USER Info</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/search">Search</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/addMe">Add me</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <form class="form-group" action='/addedUser' method='post'>
+      <label>First name</label>
+      <input type='text' class="form-control" aria-describedby="emailHelp" name='firstname' placeholder="First Name" autocomplete="off">
+
+      <label>Last name</label>
+      <input type='text' name='lastname' class="form-control" aria-describedby="emailHelp" placeholder="Last Name" autocomplete="off">
+
+      <label>Email</label>
+      <input type='text' name='email' class="form-control" aria-describedby="emailHelp" placeholder="Email" autocomplete="off">
       <input type='submit' value='Add'>
    </form>
    <div class='footer'>
+      Copyright © 2017 by Vincent K
    </div>
 </body>
 

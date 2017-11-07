@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
       }
 
       let jsonData = JSON.parse(data);
+
       res.render('index', {
          file: jsonData
       });
@@ -79,7 +80,7 @@ app.get('/search_data', (req, res) => {
       }
       const parsedJson = JSON.parse(data);
 
-      let output = parsedJson.find(element => {
+      let output = parsedJson.filter(element => {
          let firstName = element.firstname.toLowerCase()
          let lastName = element.lastname.toLowerCase()
 
@@ -91,7 +92,6 @@ app.get('/search_data', (req, res) => {
             }
          }
       })
-
       res.send({
          user: output
       })
@@ -115,7 +115,7 @@ app.post('/addedUser', (req, res) => {
 
       json.push(newUser);
 
-      fs.writeFile(fileName, JSON.stringify(json));
+      fs.writeFile(fileName, JSON.stringify(json,null,2));
 
       res.redirect('/');
    });
